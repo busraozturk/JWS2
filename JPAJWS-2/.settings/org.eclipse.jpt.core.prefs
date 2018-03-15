@@ -1,0 +1,4 @@
+#Mon Mar 12 11:59:00 VET 2018
+eclipse.preferences.version=1
+org.eclipse.jpt.core.discoverAnnotatedClasses=true
+org.eclipse.jpt.core.platform=sap.jpt.platform

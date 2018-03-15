@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EARJWS-2">
+        <wb-resource deploy-path="/" source-path="/EarContent"/>
+        <dependent-module archiveName="EJBJWS-2.jar" deploy-path="/" handle="module:/resource/EJBJWS-2/EJBJWS-2">
+            <dependent-object/>
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EJBJWS-2Client.jar" deploy-path="/" handle="module:/resource/EJBJWS-2Client/EJBJWS-2Client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="EARJWS-2.ear" deploy-path="/" handle="module:/resource/EARJWS-2/EARJWS-2">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+    </wb-module>
+</project-modules>
