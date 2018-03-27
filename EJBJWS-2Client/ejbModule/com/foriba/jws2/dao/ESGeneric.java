@@ -3,6 +3,7 @@ package com.foriba.jws2.dao;
 
 import javax.ejb.Local;
 
+
 import javax.ejb.Remote;
 
 import com.foriba.jws2.base.entity.*;

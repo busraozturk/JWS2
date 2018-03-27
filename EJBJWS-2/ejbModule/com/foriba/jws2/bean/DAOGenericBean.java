@@ -1,8 +1,8 @@
 package com.foriba.jws2.bean;
 
 import java.sql.Timestamp;
-import java.util.Date;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -46,7 +46,7 @@ public class DAOGenericBean<T extends BaseEntity> implements DAOGeneric<T> {
 	
 	@TransactionAttribute(TransactionAttributeType.MANDATORY)
 	public T merge(T t) throws Exception {
-		t.setSysLastUpdate( new Date());
+		t.setSysLastUpdate(new Date());
 		t =  em.merge(t);
 		if(FLUSH_ALL){
 			em.flush();

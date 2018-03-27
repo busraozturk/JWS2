@@ -2,7 +2,6 @@ package com.foriba.jws2.bean;
 
 import java.util.List;
 
-
 import javax.ejb.EJB;
 import javax.ejb.Stateless;
 import javax.ejb.TransactionAttribute;

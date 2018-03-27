@@ -2,25 +2,27 @@ package com.foriba.jws2.bean.all;
 
 import java.util.List;
 
+
 import javax.ejb.Stateless;
 import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
+import com.foriba.jws2.base.entity.BaseEntity;
+import com.foriba.jws2.bean.ESGenericBean;
 import com.foriba.jws2.dao.all.AllService;
 import com.foriba.jws2.jpa.entity.*;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.CONTAINER)
-public class AllServiceBean implements AllService  {
+public class AllServiceBean extends ESGenericBean<BaseEntity> implements AllService  {
 
-	@PersistenceContext(unitName = "JPAJWS-2")
-	public EntityManager em;
+	
 
 	@Override
-	public String add(Product product) {
-	em.persist(product);
+	public String add(Product product) throws Exception {
+	persist(product);
 			
 			return "Kayıt başarılı bir şekilde eklendi";
 	}

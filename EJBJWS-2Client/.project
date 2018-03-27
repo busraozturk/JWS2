@@ -3,8 +3,6 @@
 	<name>EJBJWS-2Client</name>
 	<comment></comment>
 	<projects>
-		<project>EJBJWS-2</project>
-		<project>JPAJWS-2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

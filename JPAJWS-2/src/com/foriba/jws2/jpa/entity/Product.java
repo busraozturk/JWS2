@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 
 
+
 import javax.persistence.*;
 
 import com.foriba.jws2.base.entity.BaseEntity;
