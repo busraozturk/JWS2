@@ -12,5 +12,8 @@
         <dependent-module archiveName="EARJWS-2.ear" deploy-path="/" handle="module:/resource/EARJWS-2/EARJWS-2">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/EJBJWS-2Client/EJBJWS-2Client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
     </wb-module>
 </project-modules>
