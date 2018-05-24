@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="EJBJWS-2">
+        <wb-resource deploy-path="/" source-path="/ejbModule"/>
+        <dependent-module deploy-path="/" handle="module:/resource/EJBJWS-2Client/EJBJWS-2Client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/EJBJWS-2Client/EJBJWS-2Client">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/EJBJWS-2/build/classes"/>
+        <property name="ClientProject" value="EJBJWS-2Client"/>
+        <property name="ClientJARURI" value="EJBJWS-2Client.jar"/>
+    </wb-module>
+</project-modules>

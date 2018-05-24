@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:prd="http://com.foriba/JWS2Product" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xs="http://www.w3.org/2001/XMLSchema" targetNamespace="http://com.foriba/JWS2Product">
+	<wsdl:types>
+		<xs:schema targetNamespace="http://com.foriba/JWS2Product">
+			<xs:complexType name="JWS2ProductList">
+					<xs:sequence>
+						<xs:element name="ID" type="xs:long"/>
+						<xs:element name="prodName" type="xs:string"/>
+						<xs:element name="prodConsDate" type="xs:string"/>
+						<xs:element name="prodDate" type="xs:date"/>
+						<xs:element name="prodPicture" type="xs:base64Binary"/>
+						<xs:element name="prodDesc" type="xs:string"/>
+						<xs:element name="sysVersion" type="xs:long"/>
+						<xs:element name="sysLastUpdate" type="xs:date"/>
+					</xs:sequence>
+				</xs:complexType>
+			<xs:element name="getProductByProdNameRequest">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element name="prodName" type="xs:string"/>
+					</xs:sequence>
+				</xs:complexType>
+			</xs:element>
+			<xs:element name="getProductByProdNameResponse">
+				<xs:complexType>
+					<xs:sequence>
+						<xs:element maxOccurs="20" name="Result" type="prd:JWS2ProductList"/>
+					</xs:sequence>
+				</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductByIDRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductByIDResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="20" name="Result" type="prd:JWS2ProductList"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListByProdDateRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Date" type="xs:date"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListByProdDateResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="20" name="Result" type="prd:JWS2ProductList"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListByMultipleProdDateRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="startDate" type="xs:date"/>
+							<xs:element name="endDate" type="xs:date"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListByMultipleProdDateResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="20" name="Result" type="prd:JWS2ProductList"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="addProductRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="prodName" type="xs:string"/>
+							<xs:element name="consDate" type="xs:string"/>
+							<xs:element name="prodDate" type="xs:date"/>
+							<xs:element name="prodPicture" type="xs:base64Binary"/>
+							<xs:element name="prodDesc" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="addProductResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Result" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="updateProductNameRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="prodName" type="xs:string"/>
+							<xs:element name="ID" type="xs:long"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="updateProductNameResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Result" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="removeProductRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ID" type="xs:long"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="removeProductResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Result" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListByProdNameRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="name" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListByProdNameResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="20" name="Result" type="prd:JWS2ProductList"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListRequest">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="in" type="xs:string"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="getProductListResponse">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element maxOccurs="20" name="Result" type="prd:JWS2ProductList"/>
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>				
+		</xs:schema>
+	</wsdl:types>
+	<wsdl:message name="getProductListIn">
+		<wsdl:part element="prd:getProductListRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListOut">
+		<wsdl:part element="prd:getProductListResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="addProductIn">
+		<wsdl:part element="prd:addProductRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="addProductOut">
+		<wsdl:part element="prd:addProductResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="updateProductNameIn">
+		<wsdl:part element="prd:updateProductNameRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="updateProductNameOut">
+		<wsdl:part element="prd:updateProductNameResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductByProdNameIn">
+		<wsdl:part element="prd:getProductByProdNameRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductByProdNameOut">
+		<wsdl:part element="prd:getProductByProdNameResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListByMultipleProdDateIn">
+		<wsdl:part element="prd:getProductListByMultipleProdDateRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListByMultipleProdDateOut">
+		<wsdl:part element="prd:getProductListByMultipleProdDateResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListByProdDateIn">
+		<wsdl:part element="prd:getProductListByProdDateRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListByProdDateOut">
+		<wsdl:part element="prd:getProductListByProdDateResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListByProdNameIn">
+		<wsdl:part element="prd:getProductListByProdNameRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductListByProdNameOut">
+		<wsdl:part element="prd:getProductListByProdNameResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="removeProductIn">
+		<wsdl:part element="prd:removeProductRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="removeProductOut">
+		<wsdl:part element="prd:removeProductResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductByIDIn">
+		<wsdl:part element="prd:getProductByIDRequest" name="parameter"/>
+	</wsdl:message>
+	<wsdl:message name="getProductByIDOut">
+		<wsdl:part element="prd:getProductByIDResponse" name="parameter"/>
+	</wsdl:message>
+	<wsdl:portType name="JWS2ProductPortType">
+		<wsdl:operation name="getProductList">
+			<wsdl:input message="prd:getProductListIn"/>
+			<wsdl:output message="prd:getProductListOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="addProduct">
+			<wsdl:input message="prd:addProductIn"/>
+			<wsdl:output message="prd:addProductOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="updateProductName">
+			<wsdl:input message="prd:updateProductNameIn"/>
+			<wsdl:output message="prd:updateProductNameOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="getProductByProdName">
+			<wsdl:input message="prd:getProductByProdNameIn"/>
+			<wsdl:output message="prd:getProductByProdNameOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="getProductListByMultipleProdDate">
+			<wsdl:input message="prd:getProductListByMultipleProdDateIn"/>
+			<wsdl:output message="prd:getProductListByMultipleProdDateOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="getProductListByProdDate">
+			<wsdl:input message="prd:getProductListByProdDateIn"/>
+			<wsdl:output message="prd:getProductListByProdDateOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="getProductListByProdName">
+			<wsdl:input message="prd:getProductListByProdNameIn"/>
+			<wsdl:output message="prd:getProductListByProdNameOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="removeProduct">
+			<wsdl:input message="prd:removeProductIn"/>
+			<wsdl:output message="prd:removeProductOut"/>
+		</wsdl:operation>
+		<wsdl:operation name="getProductByID">
+			<wsdl:input message="prd:getProductByIDIn"/>
+			<wsdl:output message="prd:getProductByIDOut"/>
+		</wsdl:operation>
+	</wsdl:portType>
+	<wsdl:binding xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="JWS2ProductSoapBinding" type="prd:JWS2ProductPortType">
+		<wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+		<wsdl:operation name="getProductList">
+			<soap:operation soapAction="getProductList"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="addProduct">
+			<soap:operation soapAction="addProduct"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="updateProductName">
+			<soap:operation soapAction="updateProductName"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProductByProdName">
+			<soap:operation soapAction="getProductByProdName"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProductListByMultipleProdDate">
+			<soap:operation soapAction="getProductListByMultipleProdDate"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProductListByProdDate">
+			<soap:operation soapAction="getProductListByProdDate"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProductListByProdName">
+			<soap:operation soapAction="getProductListByProdName"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="removeProduct">
+			<soap:operation soapAction="removeProduct"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+		<wsdl:operation name="getProductByID">
+			<soap:operation soapAction="getProductByID"/>
+			<wsdl:input>
+				<soap:body parts="parameter" use="literal"/>
+			</wsdl:input>
+			<wsdl:output>
+				<soap:body use="literal"/>
+			</wsdl:output>
+		</wsdl:operation>
+	</wsdl:binding>
+	<wsdl:service name="JWS2ProductService">
+		<wsdl:port binding="prd:JWS2ProductSoapBinding" name="JWS2ProductPort">
+			<soap:address xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" location="http://192.20.107.202:50000/JWS2ProductService/JWS2ProductPortTypeImplBean"/>
+		</wsdl:port>
+	</wsdl:service>
+</wsdl:definitions>

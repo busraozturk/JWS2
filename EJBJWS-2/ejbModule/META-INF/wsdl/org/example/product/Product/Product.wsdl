@@ -1,0 +1,375 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.example.org/Product/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="Product" targetNamespace="http://www.example.org/Product/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.example.org/Product/">
+      <xsd:element name="addProduct">
+        <xsd:complexType>
+          <xsd:sequence>
+          	<xsd:element name="prodName" type="xsd:string"/>
+          	<xsd:element name="consDate" type="xsd:string"/>
+          	<xsd:element name="prodDate" type="xsd:date"/>
+          	<xsd:element name="prodPicture" type="xsd:string"/>
+          	<xsd:element name="prodDesc" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="addProductResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="out" type="xsd:string"/>
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductList">
+      	<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="in" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+                <xsd:element name="idx" type="xsd:long"/>
+                <xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="prodConsDate" type="xsd:string"/>
+      			<xsd:element name="prodDate" type="xsd:date"/>
+      			<xsd:element name="prodPicture" type="xsd:string"/>
+      			<xsd:element name="prodDesc" type="xsd:string"/>
+      			<xsd:element name="sysVersion" type="xsd:int"/>
+      			<xsd:element name="sysLastUptade" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateProductName">
+      	<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="id" type="xsd:long"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="updateProductNameResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="removeProduct">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:long"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="removeProductResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="out" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductByID">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:long"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductByIDResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:long"/>
+      			<xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="prodConsDate" type="xsd:string"/>
+      			<xsd:element name="prodDate" type="xsd:date"/>
+      			<xsd:element name="prodPicture" type="xsd:string"/>
+      			<xsd:element name="prodDesc" type="xsd:string"/>
+      			<xsd:element name="sysVersion" type="xsd:int"/>
+      			<xsd:element name="sysLastUpdate" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductByProdName">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="name" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductByProdNameResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:long"/>
+      			<xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="prodConsDate" type="xsd:string"/>
+      			<xsd:element name="prodDate" type="xsd:date"/>
+                <xsd:element name="prodPicture" type="xsd:string"/>
+                <xsd:element name="prodDesc" type="xsd:string"/>
+      			<xsd:element name="sysVersion" type="xsd:int"/>
+      			<xsd:element name="sysLastUpdate" type="xsd:date"/>
+
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListByProdName">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="name" type="xsd:string"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListByProdNameResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+      			<xsd:element name="id" type="xsd:long"/>
+      			<xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="prodConsDate" type="xsd:string"/>
+      			<xsd:element name="prodDate" type="xsd:date"/>
+      			<xsd:element name="prodPicture" type="xsd:string"/>
+      			<xsd:element name="prodDesc" type="xsd:string"/>
+      			<xsd:element name="sysVersion" type="xsd:int"/>
+      			<xsd:element name="sysLastUpdate" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListByProdDate">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="date" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListByProdDateResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:long"/>
+      			<xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="prodConsDate" type="xsd:string"/>
+      			<xsd:element name="prodDate" type="xsd:date"/>
+      			<xsd:element name="prodPicture" type="xsd:string"/>
+      			<xsd:element name="prodDesc" type="xsd:string"/>
+      			<xsd:element name="sysVersion" type="xsd:int"/>
+      			<xsd:element name="sysLastUpdate" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListByMultipleProdDate">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="startDate" type="xsd:date"/>
+      			<xsd:element name="endDate" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+      <xsd:element name="getProductListByMultipleProdDateResponse">
+      	<xsd:complexType>
+      		<xsd:sequence>
+
+      			<xsd:element name="id" type="xsd:long"/>
+      			<xsd:element name="prodName" type="xsd:string"/>
+      			<xsd:element name="prodConsDate" type="xsd:string"/>
+      			<xsd:element name="prodDate" type="xsd:date"/>
+      			<xsd:element name="prodPicture" type="xsd:string"/>
+      			<xsd:element name="prodDesc" type="xsd:string"/>
+      			<xsd:element name="sysVersion" type="xsd:int"/>
+      			<xsd:element name="sysLastUpdate" type="xsd:date"/>
+      		</xsd:sequence>
+      	</xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="addProductRequest">
+    <wsdl:part element="tns:addProduct" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="addProductResponse">
+    <wsdl:part element="tns:addProductResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListRequest">
+  	<wsdl:part element="tns:getProductList" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListResponse">
+  	<wsdl:part element="tns:getProductListResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateProductNameRequest">
+  	<wsdl:part element="tns:updateProductName" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="updateProductNameResponse">
+  	<wsdl:part element="tns:updateProductNameResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="removeProductRequest">
+  	<wsdl:part element="tns:removeProduct" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="removeProductResponse">
+  	<wsdl:part element="tns:removeProductResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductByIDRequest">
+  	<wsdl:part element="tns:getProductByID" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductByIDResponse">
+  	<wsdl:part element="tns:getProductByIDResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductByProdNameRequest">
+  	<wsdl:part element="tns:getProductByProdName" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductByProdNameResponse">
+  	<wsdl:part element="tns:getProductByProdNameResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListByProdNameRequest">
+  	<wsdl:part element="tns:getProductListByProdName" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListByProdNameResponse">
+  	<wsdl:part element="tns:getProductListByProdNameResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListByProdDateRequest">
+  	<wsdl:part element="tns:getProductListByProdDate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListByProdDateResponse">
+  	<wsdl:part element="tns:getProductListByProdDateResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListByMultipleProdDateRequest">
+  	<wsdl:part element="tns:getProductListByMultipleProdDate" name="parameters"/>
+  </wsdl:message>
+  <wsdl:message name="getProductListByMultipleProdDateResponse">
+  	<wsdl:part element="tns:getProductListByMultipleProdDateResponse" name="parameters"/>
+  </wsdl:message>
+  <wsdl:portType name="Product">
+    <wsdl:operation name="addProduct">
+      <wsdl:input message="tns:addProductRequest"/>
+      <wsdl:output message="tns:addProductResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProductList">
+    	<wsdl:input message="tns:getProductListRequest"/>
+    	<wsdl:output message="tns:getProductListResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="updateProductName">
+    	<wsdl:input message="tns:updateProductNameRequest"/>
+    	<wsdl:output message="tns:updateProductNameResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="removeProduct">
+    	<wsdl:input message="tns:removeProductRequest"/>
+    	<wsdl:output message="tns:removeProductResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByID">
+    	<wsdl:input message="tns:getProductByIDRequest"/>
+    	<wsdl:output message="tns:getProductByIDResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProductByProdName">
+    	<wsdl:input message="tns:getProductByProdNameRequest"/>
+    	<wsdl:output message="tns:getProductByProdNameResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProductListByProdName">
+    	<wsdl:input message="tns:getProductListByProdNameRequest"/>
+    	<wsdl:output message="tns:getProductListByProdNameResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProductListByProdDate">
+    	<wsdl:input message="tns:getProductListByProdDateRequest"/>
+    	<wsdl:output message="tns:getProductListByProdDateResponse"/>
+    </wsdl:operation>
+    <wsdl:operation name="getProductListByMultipleProdDate">
+    	<wsdl:input message="tns:getProductListByMultipleProdDateRequest"/>
+    	<wsdl:output message="tns:getProductListByMultipleProdDateResponse"/>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProductSOAP" type="tns:Product">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="addProduct">
+      <soap:operation soapAction="http://www.example.org/Product/addProduct"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getProductList">
+	<soap:operation soapAction="http://www.example.org/Product/getProductList"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="updateProductName">
+	<soap:operation soapAction="http://www.example.org/Product/updateProductName"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="removeProduct">
+	<soap:operation soapAction="http://www.example.org/Product/removeProduct"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getProductByID">
+	<soap:operation soapAction="http://www.example.org/Product/getProductByID"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getProductByProdName">
+	<soap:operation soapAction="http://www.example.org/Product/getProductByProdName"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+	<wsdl:operation name="getProductListByProdName">
+	<soap:operation soapAction="http://www.example.org/Product/getProductListByProdName"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+		<wsdl:operation name="getProductListByProdDate">
+	<soap:operation soapAction="http://www.example.org/Product/getProductListByProdDate"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+		<wsdl:operation name="getProductListByMultipleProdDate">
+	<soap:operation soapAction="http://www.example.org/Product/getProductListByMultipleProdDate"/>
+      <wsdl:input>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="Product">
+    <wsdl:port binding="tns:ProductSOAP" name="ProductSOAP">
+      <soap:address location="http://pi730cpd:50000/ProductService/ProductPortTypeImplBean"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
