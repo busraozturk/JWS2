@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>EARJWS2-2</name>
+	<name>EARJWS-2</name>
 	<comment></comment>
 	<projects>
 		<project>EJBJWS-2</project>
 		<project>EJBJWS-2Client</project>
+		<project>JPAJWS-2</project>
 	</projects>
 	<buildSpec>
 		<buildCommand>

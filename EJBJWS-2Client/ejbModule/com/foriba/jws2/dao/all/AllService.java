@@ -4,7 +4,6 @@ import java.sql.Date;
 
 import java.util.List;
 import javax.ejb.Local;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import com.foriba.jws2.jpa.entity.Product;
 
@@ -19,19 +18,19 @@ public interface AllService {
 
 	public List<Product> getProductList() throws Exception;
 
-	public List<Product> updateProductName(String name, long l);
+	public int updateProductName(String name, long l);
 
-	public List<Product> removeProduct(long id);
+	public String removeProduct(long id);
 
-	public List<Product> getProductByID(String id);
+	public List<Product> getProductByID(long id);
 
 	public List<Product> getProductByProdName(String name);
 
 	public List<Product> getProductListByProdName(String name);
 
-	public List<Product> getProductListByProdDate(XMLGregorianCalendar date);
+	public List<Product> getProductListByProdDate(Date date);
 
-	public List<Product> getProductListByMultipleProdDate(XMLGregorianCalendar startDate,
-			XMLGregorianCalendar endDate) throws Exception;
+	public List<Product> getProductListByMultipleProdDate(java.util.Date date,
+			java.util.Date date2) throws Exception;
 
 }

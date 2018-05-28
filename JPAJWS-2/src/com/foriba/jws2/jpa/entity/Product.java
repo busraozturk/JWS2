@@ -20,7 +20,7 @@ import java.util.Date;
 		@NamedQuery(name = "Product.getProductListByMultipleProdDate", query = "SELECT P FROM Product P WHERE P.prodProddate > ?1 AND P.prodProddate < ?2"),
 		@NamedQuery(name = "Product.getProductListByProdName", query = "SELECT P FROM Product P WHERE P.prodName LIKE :prodName"),
 		@NamedQuery(name = "Product.updateProduct", query = "UPDATE Product P SET P.prodName =?1 WHERE P.idx=?2"),
-		@NamedQuery(name = "Product.removeProduct", query = "DELETE P FROM Product P WHERE P.idx = :id"),})
+		@NamedQuery(name = "Product.removeProduct", query = "DELETE  FROM Product P WHERE P.idx = :id"),})
 public class Product extends BaseEntity implements Serializable {
 	private static final long serialVersionUID = 1L;
 

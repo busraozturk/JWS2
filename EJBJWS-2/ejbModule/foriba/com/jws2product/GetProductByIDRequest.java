@@ -34,7 +34,7 @@ import javax.xml.bind.annotation.XmlType;
 public class GetProductByIDRequest {
 
 	@XmlElement(name = "ID", required = true)
-	protected String id;
+	protected long id;
 
 	/**
 	 * Gets the value of the id property.
@@ -42,7 +42,7 @@ public class GetProductByIDRequest {
 	 * @return possible object is {@link String }
 	 * 
 	 */
-	public String getID() {
+	public long getID() {
 		return id;
 	}
 
@@ -53,7 +53,7 @@ public class GetProductByIDRequest {
 	 *            allowed object is {@link String }
 	 * 
 	 */
-	public void setID(String value) {
+	public void setID(long value) {
 		this.id = value;
 	}
 

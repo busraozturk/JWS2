@@ -1,6 +1,8 @@
 
 package foriba.com.jws2product;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -38,7 +40,7 @@ public class GetProductListByProdDateRequest {
 
     @XmlElement(name = "Date", required = true)
     @XmlSchemaType(name = "date")
-    protected XMLGregorianCalendar date;
+    protected Date date;
 
     /**
      * Gets the value of the date property.
@@ -48,7 +50,7 @@ public class GetProductListByProdDateRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public XMLGregorianCalendar getDate() {
+    public Date getDate() {
         return date;
     }
 
@@ -60,7 +62,7 @@ public class GetProductListByProdDateRequest {
      *     {@link XMLGregorianCalendar }
      *     
      */
-    public void setDate(XMLGregorianCalendar value) {
+    public void setDate(Date value) {
         this.date = value;
     }
 

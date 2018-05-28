@@ -9,7 +9,6 @@ import javax.ejb.TransactionManagement;
 import javax.ejb.TransactionManagementType;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.xml.datatype.XMLGregorianCalendar;
 
 import com.foriba.jws2.base.entity.*;
 import com.foriba.jws2.bean.ESGenericBean;
@@ -23,7 +22,7 @@ public class AllServiceBean extends ESGenericBean<BaseEntity> implements
 
 	private static final long serialVersionUID = 1L;
 	Product prod = new Product();
-	
+
 	@PersistenceContext(unitName = "JPAJWS-2")
 	public EntityManager em;
 
@@ -57,7 +56,7 @@ public class AllServiceBean extends ESGenericBean<BaseEntity> implements
 	/**
 	 * The method for list all products
 	 */
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<Product> getProductList() throws Exception {
@@ -65,25 +64,25 @@ public class AllServiceBean extends ESGenericBean<BaseEntity> implements
 		return em.createNamedQuery("Product.getProductList").getResultList();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> updateProductName(String name, long id) {
+	public int updateProductName(String name, long id) {
 
-		return em.createNamedQuery("Product.updateProduct").getResultList();
+		em.createNamedQuery("Product.updateProduct").getResultList();
+		return 1;
+
+	}
+
+	
+	public String removeProduct(long id) {
+
+		em.createNamedQuery("Product.removeProduct").getResultList();
+		return "Kayıt silindi";
 
 	}
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> removeProduct(long id) {
-
-		return em.createNamedQuery("Product.removeProduct").getResultList();
-
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<Product> getProductByID(String id) {
+	public List<Product> getProductByID(long id) {
 
 		return em.createNamedQuery("Product.getProductByID").setParameter("id",
 				id).getResultList();
@@ -108,15 +107,14 @@ public class AllServiceBean extends ESGenericBean<BaseEntity> implements
 
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Product> getProductListByProdDate(XMLGregorianCalendar date) {
+	public List<Product> getProductListByProdDate(Date date) {
 		return em.createNamedQuery("Product.getProductListByProdDate")
 				.setParameter("prodProddate", date).getResultList();
 	}
-	
+
 	@Override
 	public List<Product> getProductListByMultipleProdDate(
-			XMLGregorianCalendar startDate, XMLGregorianCalendar endDate)
-			throws Exception {
+			java.util.Date startDate, java.util.Date endDate) throws Exception {
 		return findByNamedQuery(Product.class,
 				"Product.findByMultipleProdDate", 5, startDate, endDate);
 

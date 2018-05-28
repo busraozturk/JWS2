@@ -1,7 +1,7 @@
 package foriba.com.jws2product;
 
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.sql.Date;
+
 import java.util.List;
 
 import javax.ejb.EJB;
@@ -11,16 +11,15 @@ import javax.jws.WebService;
 import com.foriba.jws2.jpa.entity.Product;
 import com.foriba.jws2.dao.all.AllService;
 
-
-
 @WebService(portName = "JWS2ProductPort", serviceName = "JWS2ProductService", endpointInterface = "foriba.com.jws2product.JWS2ProductPortType", targetNamespace = "http://com.foriba/JWS2Product", wsdlLocation = "META-INF/wsdl/foriba/com/jws2product/JWS2ProductPortTypeImplBean/JWS2ProductPortTypeImplBean.wsdl")
 @Stateless
 public class JWS2ProductPortTypeImplBean implements JWS2ProductPortType {
 
 	@EJB
 	private AllService productService;
+	JWS2ProductList jws2 = new JWS2ProductList();
 	Product product = new Product();
-	
+
 	@Override
 	public foriba.com.jws2product.GetProductListResponse getProductList(
 			foriba.com.jws2product.GetProductListRequest parameter)
@@ -43,31 +42,33 @@ public class JWS2ProductPortTypeImplBean implements JWS2ProductPortType {
 	}
 
 	public foriba.com.jws2product.AddProductResponse addProduct(
-			foriba.com.jws2product.AddProductRequest parameter) throws Exception {
+			foriba.com.jws2product.AddProductRequest parameter)
+			throws Exception {
 		AddProductResponse response = new AddProductResponse();
-		Product prod = new Product();
-		return null;
+		product.setProdName(parameter.getProdName());
+		product.setProdConsdate(parameter.getConsDate());
+		product.setProdDesc(parameter.getProdDesc());
+		product.setProdPicture(parameter.getProdPicture());
+		product.setProdProddate(parameter.getProdDate());
+		productService.addProductt(product);
+		response.result = "Kayıt başarılı bir şekilde eklendi";
+		return response;
+
 	}
 
 	@Override
 	public foriba.com.jws2product.UpdateProductNameResponse updateProductName(
 			foriba.com.jws2product.UpdateProductNameRequest parameter) {
 		UpdateProductNameResponse response = new UpdateProductNameResponse();
-		List<Product> product = productService.updateProductName(parameter.getProdName(), parameter.getID());
-		if (product != null && !product.isEmpty()) {
-			for (Product prod : product) {
-				JWS2ProductList type = new JWS2ProductList();
-				type.setID(prod.getIdx());
-				type.setProdConsDate(prod.getProdConsdate());
-				type.setProdDate(prod.getProdProddate());
-				type.setProdDesc(prod.getProdDesc());
-				type.setProdName(prod.getProdName());
-				type.setProdPicture(prod.getProdPicture());
-				response.getResult().add(type);
-				
-			}
+		int Product = productService.updateProductName(parameter.getProdName(),
+				parameter.getID());
+		if (Product == 1) {
+			response.result = "Kayıt güncellendi";
+		} else {
+			response.result = "Kayıt güncelleme başarısız";
 		}
 		return response;
+
 	}
 
 	@Override
@@ -100,6 +101,7 @@ public class JWS2ProductPortTypeImplBean implements JWS2ProductPortType {
 		List<Product> product = productService
 				.getProductListByMultipleProdDate(parameter.getStartDate(),
 						parameter.getEndDate());
+
 		if (product != null && !product.isEmpty()) {
 			for (Product prod : product) {
 				JWS2ProductList type = new JWS2ProductList();
@@ -121,7 +123,7 @@ public class JWS2ProductPortTypeImplBean implements JWS2ProductPortType {
 			foriba.com.jws2product.GetProductListByProdDateRequest parameter) {
 		GetProductListByProdDateResponse response = new GetProductListByProdDateResponse();
 		List<Product> product = productService
-				.getProductListByProdDate(parameter.getDate());
+				.getProductListByProdDate((Date) parameter.getDate());
 		if (product != null && !product.isEmpty()) {
 			for (Product prod : product) {
 				JWS2ProductList type = new JWS2ProductList();
@@ -164,17 +166,10 @@ public class JWS2ProductPortTypeImplBean implements JWS2ProductPortType {
 	@Override
 	public foriba.com.jws2product.RemoveProductResponse removeProduct(
 			foriba.com.jws2product.RemoveProductRequest parameter) {
-		 List<Product> product = productService.removeProduct(parameter.getID()); 
-		 if (product != null && !product.isEmpty()) {	
-			 String message = "Kayıt başarıyla silindi";
-			 String str[] = message.split(" ");
-			 List deger = new ArrayList();
-			 deger = Arrays.asList(str);
-			 return (RemoveProductResponse) deger;
-		 }
-			
-		 return null;
-			
+		RemoveProductResponse response = new RemoveProductResponse();
+		String product = productService.removeProduct(parameter.getID());
+		response.result = "Silindi";
+		return response;
 	}
 
 	@Override

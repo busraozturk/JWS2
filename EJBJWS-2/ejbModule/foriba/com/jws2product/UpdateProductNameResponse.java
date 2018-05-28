@@ -38,7 +38,7 @@ import javax.xml.bind.annotation.XmlType;
 public class UpdateProductNameResponse {
 
     @XmlElement(name = "Result", required = true)
-    protected List<JWS2ProductList> result;;
+    protected String result;;
 
     /**
      * Gets the value of the result property.
@@ -48,20 +48,19 @@ public class UpdateProductNameResponse {
      *     {@link String }
      *     
      */
-    public List<JWS2ProductList> getResult() {
-    	if (result == null) {
-            result = new ArrayList<JWS2ProductList>();
-        }
-        return this.result;
-    }
+    public String getResult() {
+		return result;
+	}
 
-    /**
-     * Sets the value of the result property.
-     * 
-     * @param value
-     *     allowed object is
-     *     {@link String }
-     *     
-     */
+	/**
+	 * Sets the value of the result property.
+	 * 
+	 * @param value
+	 *            allowed object is {@link String }
+	 * 
+	 */
+	public void setResult(String value) {
+		this.result = value;
+	}
 
 }

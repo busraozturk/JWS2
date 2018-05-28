@@ -1,5 +1,7 @@
 package foriba.com.jws2product;
 
+import java.util.Date;
+
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
@@ -46,7 +48,7 @@ public class AddProductRequest {
 	protected String consDate;
 	@XmlElement(required = true)
 	@XmlSchemaType(name = "date")
-	protected XMLGregorianCalendar prodDate;
+	protected Date prodDate;
 	@XmlElement(required = true)
 	protected byte[] prodPicture;
 	@XmlElement(required = true)
@@ -100,7 +102,7 @@ public class AddProductRequest {
 	 * @return possible object is {@link XMLGregorianCalendar }
 	 * 
 	 */
-	public XMLGregorianCalendar getProdDate() {
+	public Date getProdDate() {
 		return prodDate;
 	}
 
@@ -111,7 +113,7 @@ public class AddProductRequest {
 	 *            allowed object is {@link XMLGregorianCalendar }
 	 * 
 	 */
-	public void setProdDate(XMLGregorianCalendar value) {
+	public void setProdDate(Date value) {
 		this.prodDate = value;
 	}
 
