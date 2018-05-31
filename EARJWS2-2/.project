@@ -3,6 +3,7 @@
 	<name>EARJWS-2</name>
 	<comment></comment>
 	<projects>
+		<project>DYNWebJWS-2</project>
 		<project>EJBJWS-2</project>
 		<project>EJBJWS-2Client</project>
 		<project>JPAJWS-2</project>
